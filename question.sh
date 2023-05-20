@@ -39,15 +39,15 @@
 #  ...
 #  2014-09-01,A,3,100.4
 #
-sed -e 's/\(^[0-9]\)\/\([0-9]\)/0\1-0\2/g' \
+
+#  >>> Escriba su codigo a partir de este punto <<<
+#
+sed -e 's/\(^[0-9]\)\/\([0-9]\)/0\1\/0\2/g' \
     -e 's/\/\([0-9]\{1,2\}\);/\/20\1;/g' \
     -e 's/\(^[0-9]\{2\}\)\/\([0-9]\{2\}\)\/\([0-9]\{2,4\}\)/\3-\2-\1/g' \
-    -e 'y/abc/ABC/' \
+    -e 'y/abc/ABC/' data.csv\
     -e 's/\(\\*[nN]\)/\\N/g' \
     -e 's/;;/;\\N;/g' \
     -e 's/[;]$/;\\N/g' \
     -e 's/,/./g' \
     -e 's/;/,/g' data.csv > output.csv
-
-#  >>> Escriba su codigo a partir de este punto <<<
-#
